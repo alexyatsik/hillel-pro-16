@@ -1,3 +1,5 @@
+'use strict';
+
 class Todo {
     constructor(status, priority, task, description) {
         this.status = status;
