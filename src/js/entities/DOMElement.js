@@ -2,11 +2,8 @@
 
 class DOMElement {
     constructor(tag, parent) {
-        this.tag = tag;
-        this.parent = parent;
-
-        this.element = document.createElement(this.tag);
-        this.parent.appendChild(this.element);
+        this.element = document.createElement(tag);
+        parent.appendChild(this.element);
     }
 
     addClass() {
@@ -19,5 +16,17 @@ class DOMElement {
 
     click(handler) {
         this.element.addEventListener('click', handler);
+    }
+
+    HTML(value) {
+        this.element.innerHTML = value;
+    }
+
+    attr(name, value) {
+        this.element.setAttribute(name, value);
+    }
+
+    get() {
+        return this.element;
     }
 }

@@ -1,10 +1,15 @@
 'use strict';
 
 class Todo {
-    constructor(status, priority, task, description) {
+    constructor(id, task, priority, status, description) {
+        this.id = id;
         this.status = status;
         this.priority = priority;
         this.task = task;
-        this.description = description;
+        if (description) {
+            this.description = description;
+        } else {
+            this.description = 'No description';
+        }
     }
 }
