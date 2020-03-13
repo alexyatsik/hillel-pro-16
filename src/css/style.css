@@ -1,0 +1,12 @@
+* {
+    box-sizing: content-box;
+}
+
+body {
+    margin: 0;
+}
+
+.app {
+    width: 50%;
+    margin: 0 auto;
+}
