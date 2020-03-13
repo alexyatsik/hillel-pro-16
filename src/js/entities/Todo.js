@@ -11,5 +11,16 @@ class Todo {
         } else {
             this.description = 'No description';
         }
+
+        this.root
+    }
+
+    get() {
+        this.root = document.createElement('tr');
+        new DOMElement('td', this.root).HTML(this.task);
+        new DOMElement('td', this.root).HTML(this.priority);
+        
+        
+        return this.root;
     }
 }

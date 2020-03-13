@@ -12,7 +12,7 @@ class Select extends DOMElement {
         for (let i = 0; i < collection.length; i++) {
             const option = new DOMElement('option', this.element);
             option.HTML(collection[i].value);
-            option.attr('value', collection[i].id);
+            option.attr('value', collection[i].value);
         }
     }
 }

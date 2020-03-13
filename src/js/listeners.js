@@ -16,24 +16,23 @@ function addTodoHandler() {
 
 function addConfirmedHandler() {
     const form = document.forms.crudForm;
-    if (form.task.value === '0') {
-        const task
+    
+    if (isInputCorrect(form)) {
+        addItemToLocalStorage('todos', new Todo(
+            form.id.value,
+            form.task.value,
+            form.priority.value,
+            form.status.value,
+            form.description.value
+        ));
+        destroy('#crud-form-wrapper');
     }
-    if (form.priority.value === '0') {
-
-    }
-    if (form.status.value === '0') {
-
-    }
-    addItemToLocalStorage('todos', JSON.stringify(new Todo(
-        form.id.value,
-        form.task.value,
-        form.priority.value,
-        form.status.value,
-        form.description.value
-    )));
 }
 
 function closeButtonHandler() {
     destroy('#crud-form-wrapper');
+}
+
+function actionsHandler(event) {
+    
 }

@@ -1,5 +1,7 @@
 'use strict';
 
+let apis;
+
 function seek(selector) {
     return document.querySelector(selector) || false;
 }
@@ -29,20 +31,21 @@ function getApis() {
 }
 
 function addItemToLocalStorage(lsName, item) {
-    const ls = JSON.parse(localStorage.getItem(lsName));
-    if (ls) {
-        for (let i = 0; i < ls.length; i++) {
-            if (ls[i].id === item.id) {
-                ls[i] === item;
-                localStorage.setItem(lsName, JSON.stringify(ls));
-                return;
-            }
-        }
-        ls.push(item);
-        localStorage.setItem(lsName, JSON.stringify(ls));
+    let db = getLocalStorage(lsName);
+    if (!db) {
+        db = [];
     }
-    const newItem = [item];
-    localStorage.setItem(lsName, JSON.stringify(newItem));
+
+    db.push(item);
+    localStorage.setItem(lsName, JSON.stringify(db));
+}
+
+function updateItemInLocalStorage(lsName, item) {
+    
+}
+
+function getLocalStorage(lsName) {
+    return JSON.parse(localStorage.getItem(lsName));
 }
 
 function getItemFromLocalStorage(lsName, itemId) {

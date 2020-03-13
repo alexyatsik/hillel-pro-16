@@ -3,7 +3,7 @@
 class AddForm extends Form {
     constructor(parent, id) {
         super(parent, id);
-    
+
         // ID row
         this.idRow = new DOMElement('tr', this.table).get();
         new DOMElement('th', this.idRow).HTML('ID');
