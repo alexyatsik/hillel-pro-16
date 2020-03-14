@@ -5,6 +5,7 @@ class ActionBar extends DOMElement {
         super('div', parent);
 
         this.itemId = itemId;
+        this.addClass('action-bar');
 
         for (let i = 0; i < buttonsValues.length; i++) {
             this.createButton(buttonsValues[i]);
