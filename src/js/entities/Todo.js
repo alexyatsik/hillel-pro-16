@@ -23,7 +23,7 @@ class Todo {
         new DOMElement('td', this.root).HTML(this.status);
         new DOMElement('td', this.root).HTML(this.description);
         const actionsNest = new DOMElement('td', this.root).get();
-        new ActionBar(actionsNest, this.id);
+        new ActionBar(actionsNest, this.id, ['Edit', 'Delete']);
         
         return this.root;
     }

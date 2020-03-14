@@ -91,3 +91,12 @@ function deleteItemFromLocalStorage(lsName, itemId) {
 function deleteItemFromPage(itemId) {
     document.querySelector(`tr[data-id="${itemId}"]`).remove();
 }
+
+function deleteConfirmationCheck(deleteButton) {
+    deleteButton.hidden = true;
+    new ActionBar(
+        deleteButton.parentElement, 
+        deleteButton.dataset.id, 
+        ['Confirm', 'Cancel']
+    );
+}
