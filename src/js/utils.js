@@ -41,7 +41,14 @@ function addItemToLocalStorage(lsName, item) {
 }
 
 function updateItemInLocalStorage(lsName, item) {
-    
+    const db = getLocalStorage(lsName);
+    for (let i = 0; i < db.length; i++) {
+        if (db[i].id === item.id) {
+            db[i] = item;
+            break;
+        }
+    }
+    localStorage.setItem(lsName, JSON.stringify(db));
 }
 
 function getLocalStorage(lsName) {
@@ -53,7 +60,7 @@ function getItemFromLocalStorage(lsName, itemId) {
     if (ls) {
         for (let i = 0; i < ls.length; i++) {
             if (ls[i].id === itemId) {
-                return ls[i].id;
+                return ls[i];
             }
         }
     }

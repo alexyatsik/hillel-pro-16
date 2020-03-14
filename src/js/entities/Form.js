@@ -1,12 +1,10 @@
 'use strict';
 
 class Form extends DOMElement {
-    constructor(parent, id) {
+    constructor(parent) {
         super('form', parent);
 
-        if (id) {
-            this.element.setAttribute('id', id);
-        }
+        this.attr('id', 'crudForm');
 
         this.table = new DOMElement('table', this.element).get();
     }

@@ -15,7 +15,7 @@ class DOMElement {
     }
 
     click(handler) {
-        this.element.addEventListener('click', handler);
+        this.element.addEventListener('click', handler, event);
     }
 
     HTML(value) {

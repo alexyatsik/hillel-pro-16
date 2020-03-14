@@ -8,9 +8,11 @@ class TodoList extends DOMElement{
         const tr = new DOMElement('tr', this.element);
         new DOMElement('th', tr.get()).HTML('Task');
         new DOMElement('th', tr.get()).HTML('Priority');
+        new DOMElement('th', tr.get()).HTML('Status');
+        new DOMElement('th', tr.get()).HTML('Description');
         new DOMElement('th', tr.get()).HTML('Actions');
 
-        this.element.click(actionsHandler);
+        this.click(actionsHandler);
     }
 
     addTodo() {

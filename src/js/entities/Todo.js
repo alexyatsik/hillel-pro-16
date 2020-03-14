@@ -17,9 +17,13 @@ class Todo {
 
     get() {
         this.root = document.createElement('tr');
+        this.root.dataset.id = this.id;
         new DOMElement('td', this.root).HTML(this.task);
         new DOMElement('td', this.root).HTML(this.priority);
-        
+        new DOMElement('td', this.root).HTML(this.status);
+        new DOMElement('td', this.root).HTML(this.description);
+        const actionsNest = new DOMElement('td', this.root).get();
+        new ActionBar(actionsNest, this.id);
         
         return this.root;
     }
