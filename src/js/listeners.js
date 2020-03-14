@@ -42,7 +42,8 @@ function actionsHandler(event) {
         new Button(wrapper.get(), 'Apply').click(EditConfirmedHandler);
         new Button(wrapper.get(), 'Close').click(closeButtonHandler);
     } else if (event.target.dataset.action === 'delete') {
-        console.log('Delete', event.target.dataset.id);
+        deleteItemFromLocalStorage('todos', event.target.dataset.id);
+        deleteItemFromPage(event.target.dataset.id);
     }
 }
 

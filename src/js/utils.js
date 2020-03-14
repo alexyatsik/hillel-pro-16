@@ -56,7 +56,7 @@ function getLocalStorage(lsName) {
 }
 
 function getItemFromLocalStorage(lsName, itemId) {
-    const ls = JSON.parse(localStorage.getItem(lsName));
+    const ls = getLocalStorage(lsName);
     if (ls) {
         for (let i = 0; i < ls.length; i++) {
             if (ls[i].id === itemId) {
@@ -66,4 +66,19 @@ function getItemFromLocalStorage(lsName, itemId) {
     }
 
     return false;
+}
+
+function deleteItemFromLocalStorage(lsName, itemId) {
+    const db = getLocalStorage(lsName);
+    for (let i = 0; i < db.length; i++) {
+        if (db[i].id === itemId) {
+            db.splice(i, 1);
+            break;
+        }
+    }
+    localStorage.setItem(lsName, JSON.stringify(db));
+}
+
+function deleteItemFromPage(itemId) {
+    document.querySelector(`tr[data-id="${itemId}"]`).remove();
 }
