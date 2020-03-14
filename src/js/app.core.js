@@ -1,9 +1,7 @@
 'use strict';
 
 function loadTodoList() {
-    const addButton = new Button(seek('#app'), 'Add TODO');
-    addButton.click(addTodoHandler);
-
+    destroy('#todosList');
     const list = new TodoList(seek('#app'));
     const todosList = getLocalStorage('todos');
     for (let i = 0; i < todosList.length; i++) {

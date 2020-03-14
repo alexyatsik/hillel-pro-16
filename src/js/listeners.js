@@ -2,6 +2,10 @@
 
 function windowHandler() {
     getApis();
+
+    const addButton = new Button(seek('#app'), 'Add TODO');
+    addButton.click(addTodoHandler);
+
     loadTodoList();
 }
 

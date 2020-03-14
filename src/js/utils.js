@@ -25,9 +25,58 @@ function getApis() {
         .then(res => {
             apis = res;
         })
+        .then(() => {
+            checkApis();
+        })
+        .then(() => {
+            loadTodoList();
+        })
         .catch(err => {
             console.log('rejected', err);
         })
+}
+
+function checkApis() {
+    const db = getLocalStorage('todos');
+
+    for (let i = 0; i < db.length; i++) {
+        const current = db[i];
+        let isCurrentApiExists = false;
+        // check statuses
+        for (let k = 0; k < apis.statuses.length; k++) {
+            if (current.status === apis.statuses[k].value) {
+                isCurrentApiExists = true;
+                break;
+            }
+        }
+        if (!isCurrentApiExists) {
+            db[i].status = 'Not defined';
+        }
+        // check priorities
+        isCurrentApiExists = false;
+        for (let k = 0; k < apis.priorities.length; k++) {
+            if (current.priority === apis.priorities[k].value) {
+                isCurrentApiExists = true;
+                break;
+            }
+        }
+        if (!isCurrentApiExists) {
+            db[i].priority = 'Not defined';
+        }
+        // check tasks
+        isCurrentApiExists = false;
+        for (let k = 0; k < apis.tasks.length; k++) {
+            if (current.task === apis.tasks[k].value) {
+                isCurrentApiExists = true;
+                break;
+            }
+        }
+        if (!isCurrentApiExists) {
+            db[i].task = 'Not defined';
+        }
+    }
+
+    localStorage.setItem('todos', JSON.stringify(db));
 }
 
 function addItemToLocalStorage(lsName, item) {

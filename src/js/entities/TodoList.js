@@ -7,12 +7,7 @@ class TodoList extends DOMElement{
 
         this.attr('id', 'todosList');
 
-        const tr = new DOMElement('tr', this.element);
-        new DOMElement('th', tr.get()).HTML('Task');
-        new DOMElement('th', tr.get()).HTML('Priority');
-        new DOMElement('th', tr.get()).HTML('Status');
-        new DOMElement('th', tr.get()).HTML('Description');
-        new DOMElement('th', tr.get()).HTML('Actions');
+        this.header();
 
         this.click(actionsHandler);
     }
@@ -27,7 +22,18 @@ class TodoList extends DOMElement{
         return this.todos.slice();
     }
 
+    header() {
+        const tr = new DOMElement('tr', this.element);
+        new DOMElement('th', tr.get()).HTML('Task');
+        new DOMElement('th', tr.get()).HTML('Priority');
+        new DOMElement('th', tr.get()).HTML('Status');
+        new DOMElement('th', tr.get()).HTML('Description');
+        new DOMElement('th', tr.get()).HTML('Actions');
+    }
+
     fillList() {
+        this.HTML('');
+        this.header();
         for (let i = 0; i < this.todos.length; i++) {
             this.element.appendChild(this.todos[i].get());
         }
