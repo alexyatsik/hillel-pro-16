@@ -40,6 +40,10 @@ function addItemToLocalStorage(lsName, item) {
     localStorage.setItem(lsName, JSON.stringify(db));
 }
 
+function addItemToPageContent(todoObj) {
+    seek('#todosList').appendChild(todoObj.get());
+}
+
 function updateItemInLocalStorage(lsName, item) {
     const db = getLocalStorage(lsName);
     for (let i = 0; i < db.length; i++) {
@@ -49,6 +53,11 @@ function updateItemInLocalStorage(lsName, item) {
         }
     }
     localStorage.setItem(lsName, JSON.stringify(db));
+}
+
+function updateItemInPageContent(todoObj) {
+    const target = document.querySelector(`#todosList > [data-id="${todoObj.id}"]`);
+    seek('#todosList').replaceChild(todoObj.get(), target);
 }
 
 function getLocalStorage(lsName) {

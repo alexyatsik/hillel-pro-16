@@ -5,6 +5,8 @@ class TodoList extends DOMElement{
         super('table', parent);
         this.todos = [];
 
+        this.attr('id', 'todosList');
+
         const tr = new DOMElement('tr', this.element);
         new DOMElement('th', tr.get()).HTML('Task');
         new DOMElement('th', tr.get()).HTML('Priority');
@@ -25,13 +27,13 @@ class TodoList extends DOMElement{
         return this.todos.slice();
     }
 
-    removeTodo() {
-        
-    }
-
     fillList() {
         for (let i = 0; i < this.todos.length; i++) {
             this.element.appendChild(this.todos[i].get());
         }
+    }
+
+    sort() {
+        
     }
 }
