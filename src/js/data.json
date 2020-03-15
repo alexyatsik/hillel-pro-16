@@ -2,7 +2,7 @@
     "statuses": [
         { "id": "1", "value": "In progress" },
         { "id": "2", "value": "Completed" },
-        { "id": "3", "value": "Pending" }
+        { "id": "3", "value": "Open" }
     ],
     "priorities": [
         { "id": "1", "value": "High" },

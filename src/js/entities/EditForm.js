@@ -34,6 +34,10 @@ class EditForm extends Form {
         this.taskRow = new DOMElement('tr', this.table).get();
         new DOMElement('th', this.taskRow).HTML('Description');
         this.taskNest = new DOMElement('td', this.taskRow).get();
-        new Input(this.taskNest, 'description', 'Task description', this.todo.description);
+        if (this.todo.description === 'No description') {
+            new Input(this.taskNest, 'description', this.todo.description);
+        } else {
+            new Input(this.taskNest, 'description', 'Task description', this.todo.description);
+        }
     }
 }
